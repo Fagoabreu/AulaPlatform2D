@@ -5,7 +5,8 @@ public class PlayerManager : MonoBehaviour
     private PlayerInputManager _playerInputManager;
     private PlayerMovementManager _playerMovementManager;
 
-    private void Awake() {
+    private void Awake()
+    {
         _playerInputManager = GetComponent<PlayerInputManager>();
         _playerMovementManager = GetComponent<PlayerMovementManager>();
     }
@@ -17,13 +18,15 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         PlayerInputValues inputValue = LerInput();
-        Mover(inputValue);
+        GerenciarMovimento(inputValue);
     }
 
-    private PlayerInputValues LerInput(){
+    private PlayerInputValues LerInput()
+    {
         return _playerInputManager.getInputs();
     }
-    private void Mover(PlayerInputValues playerInputValues){
+    private void GerenciarMovimento(PlayerInputValues playerInputValues)
+    {
         _playerMovementManager.SetInputs(playerInputValues);
     }
 }
